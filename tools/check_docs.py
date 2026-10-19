@@ -16,7 +16,7 @@ for path in ROOT.rglob('*.md'):
     if '.git' in path.parts:
         continue
     for match in re.finditer(r'!?\[[^\]]*\]\(([^)]+)\)', path.read_text()):
-        target = match.group(1).strip().split('#', 1)[0].split('?', 1)[0]
+        target = match.group(1).strip().split('#', 1)[0]
         if not target or re.match(r'^[a-z]+:', target):
             continue
         assert (path.parent/target).resolve().is_file(), f'Broken local link: {path.name} -> {target}'
