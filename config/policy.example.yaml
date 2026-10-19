@@ -1,6 +1,6 @@
 # Portable policy example. This is not a runnable framework configuration.
 # An operator must select actual models, tools, budgets and enforcement adapters.
-version: 1
+version: 2
 assignments:
   bounded_contract_required: true
   difficult_work_may_justify_specialist_before_failure: true
@@ -37,14 +37,25 @@ escalation:
     - architectural_or_integration_blocker
     - activity_without_useful_progress
   require_all_timers_exhausted: false
+  diagnosis_or_coordination_must_materially_help: true
+  known_access_outage_or_hard_limit: follow_actual_resolution_path
 budgets:
+  selection: record_finite_task_appropriate_limits_before_execution
+  unspecified_values: choose_generous_finite_limits_within_existing_authority
+  universal_short_cutoffs: false
   startup_seconds: null
   execution_seconds: null
   inactivity_seconds: null
   observation_seconds: null
+  retries_per_logical_operation_failure_mode: null
+  supervisor_recovery_seconds: null
+  supervisor_recovery_attempts: null
   overall_resource_ceiling: null
   required_resource_reserve: null
   soft_extensions: evidence_and_authority_required
+  soft_threshold_outcome: inspect_progress_and_review_budget
+  hard_limit_outcome: stop_new_dispatches_reconcile_and_checkpoint_actual_state
+  silently_relax_user_hard_limits: false
   next_milestone_required: true
   hard_limits_enforced_outside_model: true
 recovery:
@@ -53,6 +64,9 @@ recovery:
   retry_requires_transience_or_changed_evidence_input_state: true
   read_observation_is_not_execution_attempt: true
   preserve_prior_attempts_and_failures: true
+  retry_exhaustion: end_unchanged_strategy_change_approach_escalate_or_checkpoint
+  supervisor_phase: finite_budget_observable_milestone_and_stop_condition
+  reset_budgets_on_owner_worker_or_model_change: false
 verification:
   model_claim_is_not_completion: true
   heartbeat_is_liveness_only: true

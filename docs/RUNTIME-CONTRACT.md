@@ -56,7 +56,11 @@ An HTTP timeout cannot establish non-execution. An engine's completed state cann
 
 ## Budgets and cleanup
 
+Store concrete finite budgets before execution, including operation retry allowances and a bounded supervisory recovery phase within the overall task ceiling. Null example configuration values require selection before use. Report which controls are actually enforced; model-selected advisory limits must not be presented as runtime guarantees. Keep attempts and aggregate use across owner, worker, model and strategy changes.
+
 Enforce hard resource ceilings and permissions outside the model. Allow soft budgets to change through recorded, authorized decisions with a future milestone and an upper bound. Never treat model commentary as renewal of a lease or execution grant.
+
+A soft threshold expiring initiates evidence-based review. Preserve whether the operation is healthy, stalled, failed or unknown independently of the budget event. An authorized adjustment must remain within the finite task ceiling. At a hard boundary, block new dispatches and follow the declared reconciliation and cleanup reserve policy; record budget exhaustion without fabricating an execution or validation failure.
 
 Track observation requests separately from execution attempts. Persist attempt counters and incident history across handoffs. Record any additional authority as a new explicit decision rather than editing historical failures or quietly resetting usage.
 
@@ -75,7 +79,10 @@ on_event(event):
     record = durable_state.read(event.scope)
     classify event using executor evidence, not narrative alone
 
-    if result delivery is uncertain:
+    if hard limits or required permissions prevent further work:
+        block new dispatches
+        reconcile/checkpoint using the declared cleanup/reserve policy
+    else if result delivery is uncertain:
         reconcile the existing operation; do not redispatch automatically
     else if an ordinary correctable failure has a justified correction:
         assign a bounded correction under the current owner
@@ -84,8 +91,6 @@ on_event(event):
         atomically transfer affected scope to Supervisor
     else if progress supports an authorized soft-budget extension:
         persist the extension and next milestone before applying it
-    else if hard limits or required permissions prevent further work:
-        checkpoint and perform the declared cleanup/escalation
 
 on_handback(packet):
     require current Supervisor ownership

@@ -41,6 +41,8 @@ A known difficult scope may justify stronger supervisory planning before failed 
 
 The deployment should define task-specific trigger examples and review their effectiveness. Illustrative counts are starting points, not universal failure thresholds. Never wait for every time budget to expire merely to qualify for supervision.
 
+A known permission barrier, required user decision, hard resource ceiling, or confirmed external outage follows its appropriate access, recovery, or stopping path. Escalate when diagnosis or coordination can help; a more expensive model is not the default response to every blocked state. An undersized soft timer should prompt evidence-based budget review before the operation is classified as failed.
+
 ## 3. Transfer ownership safely
 
 Use these steps for each transfer:
@@ -65,6 +67,8 @@ Use the highest reasoning setting when the blocker warrants it and the configure
 
 Keep a single incident record. A recurrence adds evidence and attempts to that record. Repeated takeover/handback without a stable resolution is itself a reason to reassess the strategy, not to create another supervisor hierarchy.
 
+Give the supervisory phase a finite recovery budget, an observable milestone, and a stopping condition within the task's remaining resources. If recovery makes no useful progress and there is no justified alternative, checkpoint as unresolved and identify the actual blocker or required decision. Changing the model, worker, or coordinator never resets attempts, elapsed resource use, or the incident's history.
+
 ## 5. Progress-aware limits
 
 | Budget | What it measures | Typical evidence |
@@ -74,8 +78,14 @@ Keep a single incident record. A recurrence adds evidence and attempts to that r
 | Inactivity | Absence of a meaningful observable milestone | Last useful output or state transition |
 | Overall resources | Total time, tokens, money, calls, concurrency or reserved capacity | External accounting and owner policy |
 | Observation | How long one status/read request may wait | The observation result, not the job's final outcome |
+| Retry | Attempts for a logical operation and failure mode | Confirmed transient failures, changed inputs and retained attempt records |
+| Supervisory recovery | Resources reserved for the temporary recovery phase within the task ceiling | A stated next milestone, remaining resources and a recovery stop condition |
 
 Choose limits from the workload and observed behavior. A long build, model startup, repository operation, and short status request should not share one arbitrary timer.
+
+Before execution, record concrete finite starting limits, the objective and acceptance criteria, and the next milestone in the durable task record. Use human-readable project files when the host provides file access. Reuse configured values; when values are absent, select generous finite task-appropriate limits within existing authority. There is no universal short timeout or fixed retry count. An unset configuration example means limits still need selection, not permission for an unbounded run. Identify which limits the host enforces and which remain advisory.
+
+A soft timeout or retry threshold is a review point. Inspect executor evidence to distinguish healthy slow work, genuine failure, inactivity and uncertain delivery. An undersized soft threshold may be revised with evidence and authority within the remaining finite task ceiling. User-set hard limits remain binding until an authorized decision changes them. Budget exhaustion does not establish that a test failed or that an already-dispatched operation stopped.
 
 A soft-budget extension records the evidence, reason, authorized upper bound, next milestone, and action if the milestone does not arrive. An extension that changes live execution authority must be accepted by the runtime before the old authority expires. A model cannot extend a worker by merely announcing it.
 
@@ -97,6 +107,8 @@ Heartbeats, process existence, and streaming tokens are liveness signals. Useful
 | Worker/controller disappears | Reconcile worker and external-operation state; fence uncertain mutations | Assuming controller death proves all children stopped |
 
 A retry is a new attempt. Record why it is justified and relate it to the prior operation. For side effects, use idempotency/deduplication where supported and state reconciliation where it is not. Do not claim exactly-once behavior unless the underlying service actually provides the required guarantees.
+
+Exhausting an operation's retry budget ends the unchanged strategy. A materially different approach or a new attempt after changed inputs or a meaningful correction may be justified within the remaining authorized budget, with all prior attempts retained. A handoff, model change or rephrased command cannot reset counters or the task ceiling. This preserves both bounded recovery and the ability to repeat a valid check after its inputs change.
 
 ## 7. Verification and handback
 

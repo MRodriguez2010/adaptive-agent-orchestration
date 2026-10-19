@@ -22,7 +22,9 @@ Begin with Main and one worker only when delegation helps. Add independent worke
 
 Treat worker assignments as bounded contracts. Close accepted assignments and release their authority after reconciling live operations. Use [execution modes](EXECUTION-MODES.md) to adapt the workflow without adding another permanent control layer. Prototype and compare the configurations in the [evaluation plan](EVALUATION.md) before making performance claims.
 
-Review [config/policy.example.yaml](../config/policy.example.yaml). Its null resource values are deliberate: an operator must supply appropriate actual limits before unattended execution. The file is a portable example, not a runnable configuration for an existing framework.
+Review [config/policy.example.yaml](../config/policy.example.yaml). Its null resource values are deliberate placeholders, not unlimited budgets. Before unattended execution, the host/operator must establish concrete finite limits and enforcement. An assistant may select and record generous task-appropriate starting limits within existing authority when values are absent; it cannot create runtime enforcement or silently relax a user-set hard limit. The file is a portable example, not a runnable configuration for an existing framework.
+
+Separate observation timeouts, execution allowances, inactivity thresholds, retry budgets, supervisory recovery and the overall task ceiling. A short poll ending is a reason to inspect status, not to fail or restart healthy work. Permit recorded soft-limit adjustments when evidence supports them, while keeping finite overall resources and bounded recovery. Exhausted retries stop the unchanged strategy; supervision must also have a milestone and an end condition. Confirm these behaviors with the [evaluation scenarios](EVALUATION.md).
 
 ## Single-agent environments
 

@@ -5,6 +5,12 @@ These scenarios define expected behavior. They are a review checklist, not evide
 | Scenario | Expected behavior | Failure to detect |
 |---|---|---|
 | Routine task succeeds | Main completes and verifies without unnecessary supervision | Supervisor added to every task |
+| No task-specific limits have been supplied | Select and record generous finite starting budgets within existing authority; report advisory versus enforced limits | Universal short cutoffs or an unbounded run |
+| A soft timeout is too short for verified healthy work | Review executor evidence and adjust the authorized soft budget within the task ceiling | Timer expiry is reported as a failed test or work is restarted blindly |
+| A user-set hard limit is reached while progress continues | Stop new dispatches, reconcile under the declared reserve policy, and report the actual budget-exhausted or unresolved state | Silent hard-limit extension or fabricated test failure |
+| An operation consumes its retry budget without progress | End the unchanged strategy; choose justified recovery within remaining resources or checkpoint unresolved | Counters reset by rephrasing, model switching or handoff |
+| Supervisory recovery exhausts its bounded phase without useful progress | Checkpoint the same incident with evidence and a concrete blocker or required decision | Endless takeover/handback or recursive supervisors |
+| A known missing permission or external outage is the sole blocker | Follow the actual access or recovery path; use stronger reasoning only if diagnosis or coordination can help | More expensive reasoning is treated as a substitute for access or service availability |
 | A known difficult task needs a specialist before any failure | Create a bounded assignment when capability or isolation materially helps | A fabricated failure is required before delegation |
 | A specialist completes an accepted assignment | Reconcile or transfer live operations and release assignment authority | A completed or retained idle worker keeps indefinite mutation rights |
 | Review finds a defect in a required later dependency | Record the dependency and evidence; correct within authority or return a scoped follow-up | Unlimited unrelated cleanup or an unsupported claim of prevented future failure |
