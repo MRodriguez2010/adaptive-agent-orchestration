@@ -86,7 +86,7 @@ A practical, model-agnostic guide to routine coordination, temporary supervisor 
 
 **Start here:** copy the prompt above into your preferred LLM. For persistence, save it through that tool's supported global/custom-instruction mechanism. A pasted message alone does not prove a global setting changed. The same prompt is available as [plain text](prompts/global-orchestration.txt).
 
-![Orchestration node graph: Main and a temporary Supervisor share one runtime-enforced ownership gate; workers return evidence; verified handback restores Main control.](assets/orchestration.svg)
+![Orchestration node graph: Main and a temporary Supervisor share one runtime-enforced ownership gate; workers return evidence; verified handback restores Main control.](assets/orchestration.png)
 
 [Full-size PNG](assets/orchestration.png) · [Editable SVG](assets/orchestration.svg) · [Mermaid source](diagrams/orchestration.mmd) · [Text alternative](diagrams/README.md)
 
