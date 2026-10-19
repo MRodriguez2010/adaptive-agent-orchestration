@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1380" viewBox="0 0 1600 1380" role="img" aria-labelledby="title description">
-<title id="title">Adaptive agent orchestration</title>
+<title id="title">Contract Orchestration: Adaptive Agents</title>
 <desc id="description">Main coordinates routine work. A blocker or recurring issue transfers affected work to a temporary Supervisor. A runtime gate permits one active orchestrator per scope. Workers return observed results to durable evidence and the active owner. Verified repair and Main's accepted handback restore normal control. Permissions, resource ceilings, cancellation and acceptance remain enforced.</desc>
 <defs>
   <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#2864bd"/></marker>
@@ -10,14 +10,14 @@
 <rect width="1600" height="1380" fill="#f6f8fb"/>
 <g font-family="DejaVu Sans, Arial, sans-serif" fill="#182638">
 
-<text x="96" y="76" font-size="48" fill="#182638" text-anchor="start" font-weight="600" >Adaptive agent orchestration</text>
-<text x="98" y="120" font-size="25" fill="#536277" text-anchor="start" font-weight="400" >Keep continuity. Escalate difficult work. Return with proof.</text>
+<text x="96" y="76" font-size="42" fill="#182638" text-anchor="start" font-weight="600" >Contract Orchestration: Adaptive Agents</text>
+<text x="98" y="120" font-size="25" fill="#536277" text-anchor="start" font-weight="400" >Bound responsibility. Resolve difficult work. Return with evidence.</text>
 <rect x="140" y="165" width="220" height="36" rx="10" fill="#e8f0fc" stroke="#e8f0fc" stroke-width="2"/>
 <text x="156" y="190" font-size="18" fill="#285b9c" text-anchor="start" font-weight="600" >NORMAL OPERATION</text>
 <rect x="1040" y="165" width="310" height="36" rx="10" fill="#fcebdc" stroke="#fcebdc" stroke-width="2"/>
 <text x="1056" y="190" font-size="18" fill="#9b4b24" text-anchor="start" font-weight="600" >EVIDENCE-BASED ESCALATION</text>
 <path data-edge="main-supervisor" d="M560 300 H1040" fill="none" stroke="#b75524" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
-<text x="800" y="272" font-size="22" fill="#98451f" text-anchor="middle" font-weight="500" >Blocked or recurring issue</text>
+<text x="800" y="272" font-size="22" fill="#98451f" text-anchor="middle" font-weight="500" >Difficult task or recurring blocker</text>
 <path data-edge="supervisor-main" d="M1040 370 H560" fill="none" stroke="#25725a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
 <text x="800" y="410" font-size="20" fill="#25644f" text-anchor="middle" font-weight="500" >Verified repair + accepted handback</text>
 <path data-edge="main-owner" d="M350 440 V490 Q350 510 370 510 H610 V540" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
@@ -60,19 +60,19 @@
 <rect x="160" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
 <text x="350.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Implementation</text>
 <text x="350.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Produce or change artifacts</text>
-<text x="350.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+<text x="350.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Temporary worker · task-fit model</text>
 </g>
 <g id="node-investigate" data-node="investigate">
 <rect x="610" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
 <text x="800.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Investigation</text>
 <text x="800.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Test competing explanations</text>
-<text x="800.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+<text x="800.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Temporary worker · task-fit model</text>
 </g>
 <g id="node-verify" data-node="verify">
 <rect x="1060" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
 <text x="1250.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Verification</text>
 <text x="1250.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Check accepted outcomes</text>
-<text x="1250.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+<text x="1250.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Temporary worker · task-fit model</text>
 </g>
 <g id="node-evidence" data-node="evidence">
 <rect x="520" y="1060" width="560" height="140" rx="22" fill="#eaf0f5" stroke="#c9d4e1" stroke-width="2"/>

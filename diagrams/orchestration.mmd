@@ -6,7 +6,7 @@ flowchart TB
     investigate["Investigation"]
     verify["Verification"]
     evidence["Evidence and durable task state"]
-    main -->|"Blocked or recurring issue"| supervisor
+    main -->|"Difficult task or recurring blocker"| supervisor
     supervisor -->|"Verified repair and accepted handback"| main
     main -->|"Normal ownership"| owner
     supervisor -.->|"Temporary ownership"| owner

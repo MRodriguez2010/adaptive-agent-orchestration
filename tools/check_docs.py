@@ -22,6 +22,7 @@ for path in ROOT.rglob('*.md'):
         assert (path.parent/target).resolve().is_file(), f'Broken local link: {path.name} -> {target}'
         checked += 1
 builder = runpy.run_path(str(ROOT/'tools/build_diagram.py'))
+assert '\n# '+builder['PROJECT_TITLE']+'\n' in readme, 'README/project title drift'
 assert (ROOT/'assets/orchestration.svg').read_text() == builder['build_svg'](), 'SVG/layout drift'
 assert (ROOT/'diagrams/orchestration.mmd').read_text() == builder['build_mermaid'](), 'Mermaid/layout drift'
 svg = ET.parse(ROOT/'assets/orchestration.svg').getroot()

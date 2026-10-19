@@ -1,6 +1,15 @@
 # Portable policy example. This is not a runnable framework configuration.
 # An operator must select actual models, tools, budgets and enforcement adapters.
 version: 1
+assignments:
+  bounded_contract_required: true
+  difficult_work_may_justify_specialist_before_failure: true
+  close_after_acceptance_and_operation_reconciliation: true
+  release_completed_assignment_authority: true
+  related_findings: correct_authorized_required_dependency_or_defer_with_evidence
+execution_modes:
+  owner_selects_smallest_useful_mode: true
+  preserve_state_operations_authority_and_budgets_on_switch: true
 roles:
   main:
     model: null

@@ -5,6 +5,10 @@ These scenarios define expected behavior. They are a review checklist, not evide
 | Scenario | Expected behavior | Failure to detect |
 |---|---|---|
 | Routine task succeeds | Main completes and verifies without unnecessary supervision | Supervisor added to every task |
+| A known difficult task needs a specialist before any failure | Create a bounded assignment when capability or isolation materially helps | A fabricated failure is required before delegation |
+| A specialist completes an accepted assignment | Reconcile or transfer live operations and release assignment authority | A completed or retained idle worker keeps indefinite mutation rights |
+| Review finds a defect in a required later dependency | Record the dependency and evidence; correct within authority or return a scoped follow-up | Unlimited unrelated cleanup or an unsupported claim of prevented future failure |
+| Task evidence justifies a different execution mode | Preserve accepted state, operations and budgets; switch at an observable boundary | Switching resets history or creates competing owners |
 | Worker makes a correctable syntax error | Worker retains the error, fixes it and runs relevant checks | Immediate high-cost escalation for a trivial correction |
 | Meaningful corrections do not resolve a recurring blocker | Transfer affected scope to Supervisor with evidence | Repeating the same repair loop or waiting for all timers |
 | Main and Supervisor attempt conflicting assignments | Runtime accepts only the current owner/generation | Two active controllers mutating the same scope |
@@ -34,3 +38,22 @@ These scenarios define expected behavior. They are a review checklist, not evide
 - **Handback quality:** handbacks accepted with complete evidence and a usable continuation state.
 
 A small example is not a benchmark. Compare similar tasks, include unsuccessful outcomes, report the model/effort actually used where observable, and preserve raw receipts privately where appropriate. Publish only sanitized evidence you are authorized to share.
+
+## Comparative evaluation plan
+
+Compare four candidate configurations:
+
+1. One capable agent with tools and the same acceptance checks.
+2. A conventional manager with bounded workers and verification.
+3. Main and workers with temporary Supervisor escalation and accepted handback.
+4. An always-active stronger coordinator with the same available specialists.
+
+Use identical starting snapshots, tool access, acceptance criteria, and comparable total resource ceilings. State whether capability selection is held constant or changes between conditions; otherwise a gain from a stronger model could be misattributed to orchestration. Include orchestration, handoff, review, and failed-attempt costs.
+
+Cover routine tasks, known difficult tasks, recurring cross-component failures, uncertain mutation delivery, healthy long-running operations, changed-input rereads, and defects in required later dependencies. Repeat stochastic runs where feasible, report variability and unresolved outcomes, and reserve unseen tasks when tuning escalation rules. Distinguish an orchestration error from an unavailable capability or external service.
+
+Add ablations when useful: the same recovery discipline without a separate Supervisor, and temporary supervision without independent acceptance checks. This helps identify whether value comes from the stronger reasoning, explicit evidence discipline, or transfer policy. Avoid broad superiority claims from a small selected demonstration.
+
+## Current evidence
+
+The [field observation](FIELD-OBSERVATION.md) documents selected local corrections in one private workflow. It is motivation for these scenarios, not a completed comparative evaluation. The checklist and plan on this page do not imply that an implementation has passed them.

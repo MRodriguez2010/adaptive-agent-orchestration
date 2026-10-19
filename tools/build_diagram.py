@@ -6,6 +6,7 @@ import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 WIDTH, HEIGHT = 1600, 1380
+PROJECT_TITLE = 'Contract Orchestration: Adaptive Agents'
 NODES = [
     ('main', 'Main coordinator'), ('supervisor', 'Temporary supervisor'),
     ('owner', 'One active orchestrator'), ('build', 'Implementation'),
@@ -13,7 +14,7 @@ NODES = [
     ('evidence', 'Evidence and durable task state'),
 ]
 EDGES = [
-    ('main', 'supervisor', 'Blocked or recurring issue'),
+    ('main', 'supervisor', 'Difficult task or recurring blocker'),
     ('supervisor', 'main', 'Verified repair and accepted handback'),
     ('main', 'owner', 'Normal ownership'),
     ('supervisor', 'owner', 'Temporary ownership'),
@@ -25,7 +26,7 @@ EDGES = [
 
 def build_svg():
     parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title description">
-<title id="title">Adaptive agent orchestration</title>
+<title id="title">{escape(PROJECT_TITLE)}</title>
 <desc id="description">Main coordinates routine work. A blocker or recurring issue transfers affected work to a temporary Supervisor. A runtime gate permits one active orchestrator per scope. Workers return observed results to durable evidence and the active owner. Verified repair and Main's accepted handback restore normal control. Permissions, resource ceilings, cancellation and acceptance remain enforced.</desc>
 <defs>
   <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#2864bd"/></marker>
@@ -51,15 +52,15 @@ def build_svg():
             text(x+w/2, y+offset, value, size, color, 'middle')
         parts.append('</g>')
 
-    text(96, 76, 'Adaptive agent orchestration', 48, weight=600)
-    text(98, 120, 'Keep continuity. Escalate difficult work. Return with proof.', 25, '#536277')
+    text(96, 76, PROJECT_TITLE, 42, weight=600)
+    text(98, 120, 'Bound responsibility. Resolve difficult work. Return with evidence.', 25, '#536277')
     rect(140, 165, 220, 36, '#e8f0fc', '#e8f0fc', 10)
     text(156, 190, 'NORMAL OPERATION', 18, '#285b9c', weight=600)
     rect(1040, 165, 310, 36, '#fcebdc', '#fcebdc', 10)
     text(1056, 190, 'EVIDENCE-BASED ESCALATION', 18, '#9b4b24', weight=600)
 
     path('main-supervisor', 'M560 300 H1040', '#b75524', 'arrow-orange')
-    text(800, 272, 'Blocked or recurring issue', 22, '#98451f', 'middle', 500)
+    text(800, 272, 'Difficult task or recurring blocker', 22, '#98451f', 'middle', 500)
     path('supervisor-main', 'M1040 370 H560', '#25725a', 'arrow-green')
     text(800, 410, 'Verified repair + accepted handback', 20, '#25644f', 'middle', 500)
     path('main-owner', 'M350 440 V490 Q350 510 370 510 H610 V540', '#2864bd', 'arrow-blue')
@@ -100,7 +101,7 @@ def build_svg():
     ]:
         card(node, x, 790, 380, 150, '#ffffff', '#bfd8ce', heading, [
             (88, detail, 21, '#365e50'),
-            (123, 'Worker · task-appropriate model', 19, '#536277'),
+            (123, 'Temporary worker · task-fit model', 19, '#536277'),
         ])
     card('evidence', 520, 1060, 560, 140, '#eaf0f5', '#c9d4e1', 'Evidence & durable task state', [
         (87, 'Results · attempts · budgets · next step', 22, '#46596e'),

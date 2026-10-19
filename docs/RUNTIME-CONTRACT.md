@@ -25,6 +25,14 @@ Maintain a durable record for each affected scope. A minimal record contains:
 
 These identifiers are illustrative. The record must not hold credentials or treat a free-text claim as verified evidence.
 
+## Assignment lifecycle
+
+Bind each worker contract to its owner, control generation, objective, allowed resources, acceptance criteria, operation identities, and resource limits. A contract ending requires observed acceptance and reconciliation of its live operations, or an explicit transfer of those operations to another current assignment. Invalidate the completed assignment's authority at the assignment and mutation boundary; retaining the agent's session must not keep that authority active.
+
+Ending authority does not prove process death, reverse an external side effect, or erase the contract's history. Retain late results as evidence and reconcile them against the current source and owner before acceptance. A new assignment must declare fresh authority without resetting the task's existing resource accounting.
+
+An execution-mode change under the same owner preserves the task and operation records. A mode change that transfers ownership must also satisfy the atomic transfer rules below. Related findings outside the current authority remain findings until an authorized contract covers their correction.
+
 ## Atomic control transfer
 
 A takeover or handback uses a compare-and-set transaction against the expected owner and generation. The update records its reason, evidence, accepted packet and new owner, then advances the generation. Reject stale transfers.

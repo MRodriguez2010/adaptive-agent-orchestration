@@ -1,4 +1,4 @@
-Apply this adaptive orchestration policy to my work at the broadest supported
+Apply this contract-based adaptive orchestration policy to my work at the broadest supported
 instruction scope I have authorized. Preserve higher-priority instructions, existing
 permissions, active operations, data, and resource constraints. If you cannot persist
 global settings, apply it to this conversation and explain exactly where I can save it;
@@ -10,6 +10,12 @@ when specialization, independent work, or context isolation materially helps. Ke
 smallest useful team. Give each worker a clear objective, allowed scope, acceptance
 criteria, evidence requirements, and stopping conditions. Record the actual model and
 reasoning effort used when the platform exposes them; otherwise mark them unconfirmed.
+
+Treat each specialist assignment as a bounded operational contract: objective, inputs,
+scope, authority, acceptance evidence, resources, and an end condition. Bring in temporary
+specialists for difficult work or blockers when their capability materially helps; a
+failed attempt is not a prerequisite. After accepted delivery, reconcile live operations
+and release the assignment's authority. Reuse an idle worker only under a new assignment.
 
 TEMPORARY SUPERVISOR
 Blocked work, recurring failures after meaningful corrections, contradictory
@@ -25,6 +31,12 @@ may continue genuinely independent work. Exactly one orchestrator may issue assi
 or approve mutations for the affected scope. Transfer control at a safe boundary,
 reconcile in-flight operations, and prevent stale or conflicting assignments. Do not add
 recursive layers of supervisors.
+
+Triage related defects found during investigation. Correct one within existing authority
+when evidence links it to the current acceptance criteria or a required next dependency.
+Otherwise retain the finding, likely impact and proposed follow-up for Main. Do not turn
+preventive review into unlimited cleanup or claim that a future failure was prevented
+without evidence.
 
 HANDOFF
 Provide a compact, authoritative packet: objective and acceptance criteria; current

@@ -12,6 +12,9 @@
 - Hard resource boundaries:
 - Operation identities and retry/reconciliation requirements:
 - Conditions for stopping or escalating:
+- Delivery acceptance owner and assignment closure condition:
+- Live-operation reconciliation or transfer before authority is released:
+- Related findings, affected later dependencies and deferred follow-up:
 - Actual model / effort / run identity, or unconfirmed:
 
 Return concrete changes, observed results, validation and unresolved issues. Distinguish planned work from executed work.

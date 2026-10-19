@@ -2,6 +2,16 @@
 
 This policy combines a stable Main coordinator with temporary Supervisor ownership of difficult work. The purpose is to complete useful work with clear control, appropriate patience, and inspectable outcomes.
 
+## Assignment contracts and temporary responsibility
+
+A contract is an operational assignment: objective, inputs, allowed scope, authority, acceptance evidence, resource boundaries, and a condition for ending responsibility. Bring in a specialist when the task is difficult or blocked and the specialist materially helps; a failed attempt is not required. A specialist who returns advice or a bounded artifact is a worker. Transferring control of the affected plan and workers is Supervisor takeover.
+
+After delivery is accepted, reconcile or explicitly transfer live operations, close the assignment, and release its authority. A retained idle agent needs a new assignment before doing further work. Ending the assignment does not mean deleting its evidence or assuming that its external operations stopped.
+
+Related defects need triage. A finding that threatens an identified required dependency may justify correction within the existing contract and permissions. Otherwise preserve evidence, likely impact, and a proposed follow-up for Main. Preventive review does not authorize unrelated cleanup or prove that a future delay was prevented.
+
+See [execution modes](EXECUTION-MODES.md) for changing task structure under one state and authority layer, and [related work](RELATED-WORK.md) for established precedents and contribution boundaries.
+
 ## 1. Roles and scope
 
 | Role | Responsibility | Control boundary |
@@ -26,6 +36,8 @@ Escalate when evidence indicates a problem that the current approach is unlikely
 - Attempts produce activity without reducing uncertainty or satisfying a milestone.
 
 Do not make the number of failed tool calls the sole trigger. A malformed command, ordinary assertion failure, or unsuccessful search often needs a local correction. A serious ownership ambiguity can justify immediate escalation.
+
+A known difficult scope may justify stronger supervisory planning before failed attempts when evidence establishes a capability or architectural need. Difficulty alone does not require a second coordinator; use a bounded specialist worker when advice or a narrow deliverable is sufficient.
 
 The deployment should define task-specific trigger examples and review their effectiveness. Illustrative counts are starting points, not universal failure thresholds. Never wait for every time budget to expire merely to qualify for supervision.
 

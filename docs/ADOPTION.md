@@ -20,6 +20,8 @@ Map the Main, Supervisor and Worker roles to available agents/models. Configure 
 
 Begin with Main and one worker only when delegation helps. Add independent workers when there is a clear benefit. A temporary Supervisor may coordinate those workers without adding another hierarchy of supervisors.
 
+Treat worker assignments as bounded contracts. Close accepted assignments and release their authority after reconciling live operations. Use [execution modes](EXECUTION-MODES.md) to adapt the workflow without adding another permanent control layer. Prototype and compare the configurations in the [evaluation plan](EVALUATION.md) before making performance claims.
+
 Review [config/policy.example.yaml](../config/policy.example.yaml). Its null resource values are deliberate: an operator must supply appropriate actual limits before unattended execution. The file is a portable example, not a runnable configuration for an existing framework.
 
 ## Single-agent environments

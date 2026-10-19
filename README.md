@@ -1,5 +1,5 @@
 ```text
-Apply this adaptive orchestration policy to my work at the broadest supported
+Apply this contract-based adaptive orchestration policy to my work at the broadest supported
 instruction scope I have authorized. Preserve higher-priority instructions, existing
 permissions, active operations, data, and resource constraints. If you cannot persist
 global settings, apply it to this conversation and explain exactly where I can save it;
@@ -11,6 +11,12 @@ when specialization, independent work, or context isolation materially helps. Ke
 smallest useful team. Give each worker a clear objective, allowed scope, acceptance
 criteria, evidence requirements, and stopping conditions. Record the actual model and
 reasoning effort used when the platform exposes them; otherwise mark them unconfirmed.
+
+Treat each specialist assignment as a bounded operational contract: objective, inputs,
+scope, authority, acceptance evidence, resources, and an end condition. Bring in temporary
+specialists for difficult work or blockers when their capability materially helps; a
+failed attempt is not a prerequisite. After accepted delivery, reconcile live operations
+and release the assignment's authority. Reuse an idle worker only under a new assignment.
 
 TEMPORARY SUPERVISOR
 Blocked work, recurring failures after meaningful corrections, contradictory
@@ -26,6 +32,12 @@ may continue genuinely independent work. Exactly one orchestrator may issue assi
 or approve mutations for the affected scope. Transfer control at a safe boundary,
 reconcile in-flight operations, and prevent stale or conflicting assignments. Do not add
 recursive layers of supervisors.
+
+Triage related defects found during investigation. Correct one within existing authority
+when evidence links it to the current acceptance criteria or a required next dependency.
+Otherwise retain the finding, likely impact and proposed follow-up for Main. Do not turn
+preventive review into unlimited cleanup or claim that a future failure was prevented
+without evidence.
 
 HANDOFF
 Provide a compact, authoritative packet: objective and acceptance criteria; current
@@ -80,9 +92,17 @@ access, or a material change in scope or resources. Track verified completion, r
 blockers, blocked time, and resource use per resolved issue.
 ```
 
-# Adaptive Agent Orchestration
+# Contract Orchestration: Adaptive Agents
 
-A practical, model-agnostic guide to routine coordination, temporary supervisor takeover, progress-aware recovery, and verified handback.
+A practical, model-agnostic policy for bounded specialist assignments, temporary supervisor takeover, progress-aware recovery, and verified handback.
+
+Developed and documented by [MRodriguez2010](https://github.com/MRodriguez2010). The contribution is this particular policy, its assignment and handback contracts, reusable templates, diagram, and evaluation scenarios. It combines established orchestration ideas; it makes no claim to have invented adaptive orchestration, task contracts, supervisors, or verified delegation. See [related work and attribution](docs/RELATED-WORK.md).
+
+**Status:** documented policy and adoption kit. There is no supplied orchestration engine or controlled evidence of superiority. A [sanitized field observation](docs/FIELD-OBSERVATION.md) records useful local corrections during one supervised repair, with its verification and publication limits.
+
+Here, a **contract** is an operational assignment with an objective, bounded authority, acceptance evidence, and an explicit end. Temporary specialists handle difficult work or blockers, deliver evidence, and leave the assignment after acceptance. Main keeps user continuity. A specialist who only supplies advice remains a worker; a Supervisor receives temporary control over the affected workers and plan.
+
+The project was previously titled *Adaptive Agent Orchestration*. The new title describes its focus more precisely; it is not a claim that the underlying concepts are new.
 
 **Start here:** copy the prompt above into your preferred LLM. For persistence, save it through that tool's supported global/custom-instruction mechanism. A pasted message alone does not prove a global setting changed. The same prompt is available as [plain text](prompts/global-orchestration.txt).
 
@@ -93,11 +113,11 @@ A practical, model-agnostic guide to routine coordination, temporary supervisor 
 ## How it works
 
 1. **Main coordinates normal work.** It maintains continuity, delegates only when useful, and remains the user interface.
-2. **Evidence triggers escalation.** A recurring blocker, contradictory state, or unresolved execution ambiguity can justify a stronger Supervisor before arbitrary counters expire.
+2. **Bounded contracts bring in specialists.** Difficult work may justify a temporary specialist before a failure. A recurring blocker, contradictory state, or unresolved execution ambiguity can justify Supervisor takeover before arbitrary counters expire.
 3. **Supervisor takes temporary control.** It owns the affected plan and workers. Exactly one orchestrator controls that scope.
 4. **Waiting and recovery adapt to progress.** Observation timeouts, actual failed tests, healthy execution and genuine stalls receive different treatment.
 5. **Verification precedes handback.** Supervisor returns the cause, change, evidence, limitations and continuation state. Main reviews and accepts control.
-6. **Temporary supervision ends.** Main resumes remaining work. Recurring incidents retain their history.
+6. **Temporary responsibilities end.** Accepted assignments release their authority after live operations are reconciled. Main resumes remaining work. Recurring incidents retain their history.
 
 ## Read and reuse
 
@@ -107,6 +127,9 @@ A practical, model-agnostic guide to routine coordination, temporary supervisor 
 | [Runtime contract](docs/RUNTIME-CONTRACT.md) | Atomic ownership, fencing, durable operations, uncertain delivery and result acceptance |
 | [Adoption guide](docs/ADOPTION.md) | Chat, persistent instructions, coding agents, applications and single-agent fallback |
 | [Evaluation scenarios](docs/EVALUATION.md) | Concrete expected behaviors and useful outcome metrics |
+| [Related work and attribution](docs/RELATED-WORK.md) | Established patterns, closest projects, research references, and defensible contribution claims |
+| [Execution modes](docs/EXECUTION-MODES.md) | Choose and change bounded workflows under one authority and state layer |
+| [Field observation](docs/FIELD-OBSERVATION.md) | Sanitized experience, observed local corrections, and limits on evidence |
 | [Handoff](templates/handoff.md) / [Handback](templates/handback.md) | Compact transfer packets with evidence and live-operation state |
 | [Worker assignment](templates/worker-assignment.md) | Scope, ownership, acceptance, budgets and stopping conditions |
 | [Budget decision](templates/budget-decision.md) | Reasons, authority, next milestones and retained attempt history |
@@ -124,12 +147,17 @@ The SVG is an editable vector export; the Mermaid file provides a portable logic
 
 The PNG is a convenience export. SVG generation uses Python's standard library. PNG export uses the optional system Python bindings for Cairo and librsvg; see the diagram tool's `--png` option.
 
-## Design references
+## Design references and related work
 
-The specific policy choices in this guide are recommendations to evaluate against your workload. These primary references explain related orchestration patterns:
+The policy choices are recommendations to evaluate against your workload. These references establish context; they do not endorse or validate this project:
 
 - [OpenAI: orchestration and handoffs](https://developers.openai.com/api/docs/guides/agents/orchestration) distinguishes a manager retaining control from a specialist taking over a branch of work.
 - [Anthropic: building effective agents](https://www.anthropic.com/engineering/building-effective-agents) describes orchestrator/worker workflows, incremental complexity and stopping conditions.
+- [Microsoft: Magentic-One](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/magentic-one.html#architecture) describes task and progress ledgers, specialist coordination, and replanning when progress stalls.
+- [Reid G. Smith: Contract Net Protocol (1980)](https://reidgsmith.com/The_Contract_Net_Protocol_Dec-1980.pdf) establishes an earlier task-contract approach based on negotiation and awards. This guide does not specify a bidding protocol.
+- [YuemingHub: Adaptive Agent Orchestration Protocol](https://github.com/YuemingHub/Adaptive-Agent-Orchestration-Protocol) and [VAMFI: Dynamic Workflows for Codex](https://github.com/VAMFI/dynamic-workflows-for-codex) are related public policy and workflow projects with overlapping terminology and goals.
+
+The [full comparison](docs/RELATED-WORK.md) also covers Microsoft orchestration patterns, LangGraph, Codex's harness and multi-agent capabilities, MasRouter, TROVE, Automated Design of Agentic Systems, and research on agent-system scaling. Sources identified during the related-work review are described as related work, without retroactively claiming they inspired the original draft.
 
 No particular provider, framework, model name or reasoning label is required.
 

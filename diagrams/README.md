@@ -4,6 +4,8 @@
 
 Main normally controls the work. A blocked or recurring issue triggers temporary Supervisor ownership. The Supervisor resolves the blocker, provides verification evidence and offers handback. Main checks that evidence and accepts control before normal work resumes.
 
+The graph belongs to **Contract Orchestration: Adaptive Agents**. Worker assignments are bounded contracts, and a difficult task can justify a specialist before any failure. Accepted assignments release their authority after live operations are reconciled or explicitly transferred. The task record and evidence remain available after temporary responsibilities end.
+
 Both roles connect to one runtime ownership gate. That gate permits only the current orchestrator to assign or mutate the affected scope. It delegates to the smallest useful set of implementation, investigation or verification workers; the illustrated worker roles are examples, not a mandatory three-agent team.
 
 Workers return observed outputs, checks and operation state to durable evidence. That evidence is available to whichever role currently owns the affected scope. Solid paths show work/control and handback. The dashed path highlights temporary Supervisor control. Gray paths carry evidence and live status.
