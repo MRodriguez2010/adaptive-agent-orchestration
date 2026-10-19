@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1380" viewBox="0 0 1600 1380" role="img" aria-labelledby="title description">
+<title id="title">Adaptive agent orchestration</title>
+<desc id="description">Main coordinates routine work. A blocker or recurring issue transfers affected work to a temporary Supervisor. A runtime gate permits one active orchestrator per scope. Workers return observed results to durable evidence and the active owner. Verified repair and Main's accepted handback restore normal control. Permissions, resource ceilings, cancellation and acceptance remain enforced.</desc>
+<defs>
+  <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#2864bd"/></marker>
+  <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#b75524"/></marker>
+  <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#25725a"/></marker>
+  <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#728093"/></marker>
+</defs>
+<rect width="1600" height="1380" fill="#f6f8fb"/>
+<g font-family="DejaVu Sans, Arial, sans-serif" fill="#182638">
+
+<text x="96" y="76" font-size="48" fill="#182638" text-anchor="start" font-weight="600" >Adaptive agent orchestration</text>
+<text x="98" y="120" font-size="25" fill="#536277" text-anchor="start" font-weight="400" >Keep continuity. Escalate difficult work. Return with proof.</text>
+<rect x="140" y="165" width="220" height="36" rx="10" fill="#e8f0fc" stroke="#e8f0fc" stroke-width="2"/>
+<text x="156" y="190" font-size="18" fill="#285b9c" text-anchor="start" font-weight="600" >NORMAL OPERATION</text>
+<rect x="1040" y="165" width="310" height="36" rx="10" fill="#fcebdc" stroke="#fcebdc" stroke-width="2"/>
+<text x="1056" y="190" font-size="18" fill="#9b4b24" text-anchor="start" font-weight="600" >EVIDENCE-BASED ESCALATION</text>
+<path data-edge="main-supervisor" d="M560 300 H1040" fill="none" stroke="#b75524" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<text x="800" y="272" font-size="22" fill="#98451f" text-anchor="middle" font-weight="500" >Blocked or recurring issue</text>
+<path data-edge="supervisor-main" d="M1040 370 H560" fill="none" stroke="#25725a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<text x="800" y="410" font-size="20" fill="#25644f" text-anchor="middle" font-weight="500" >Verified repair + accepted handback</text>
+<path data-edge="main-owner" d="M350 440 V490 Q350 510 370 510 H610 V540" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path data-edge="supervisor-owner" d="M1250 440 V490 Q1250 510 1230 510 H990 V540" fill="none" stroke="#b75524" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)" stroke-dasharray="10 7"/>
+<text x="370" y="482" font-size="20" fill="#285b9c" text-anchor="start" font-weight="400" >Routine control</text>
+<text x="1220" y="482" font-size="20" fill="#98451f" text-anchor="end" font-weight="400" >Control during takeover</text>
+<path data-edge="owner-workers" d="M800 675 V725 M350 725 H1250" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path data-edge="owner-build" d="M350 725 V790" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path data-edge="owner-investigate" d="M800 725 V790" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path data-edge="owner-verify" d="M1250 725 V790" fill="none" stroke="#2864bd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<text x="160" y="708" font-size="21" fill="#536277" text-anchor="start" font-weight="400" >Delegate only when useful.</text>
+<text x="1460" y="708" font-size="21" fill="#536277" text-anchor="end" font-weight="400" >Smallest useful team</text>
+<path data-edge="build-evidence" d="M350 940 V995 H800" fill="none" stroke="#728093" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path data-edge="investigate-evidence" d="M800 940 V1060" fill="none" stroke="#728093" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-gray)"/>
+<path data-edge="verify-evidence" d="M1250 940 V995 H800" fill="none" stroke="#728093" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="1035" font-size="21" fill="#536277" text-anchor="start" font-weight="400" >Observed outputs + checks + operation state</text>
+<path data-edge="evidence-owner" d="M1080 1130 H1510 V620 H1040" fill="none" stroke="#728093" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-gray)"/>
+<text x="1545" y="875" font-size="20" fill="#536277" text-anchor="middle" font-weight="400" transform="rotate(-90 1545 875)">Evidence and live status return to the active owner</text>
+<g id="node-main" data-node="main">
+<rect x="140" y="220" width="420" height="220" rx="22" fill="#eaf2ff" stroke="#aec7eb" stroke-width="2"/>
+<text x="350.0" y="268" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Main coordinator</text>
+<text x="350.0" y="316" font-size="23" fill="#285b9c" text-anchor="middle" font-weight="400" >Routine planning and delivery</text>
+<text x="350.0" y="352" font-size="23" fill="#285b9c" text-anchor="middle" font-weight="400" >User interface + task continuity</text>
+<text x="350.0" y="402" font-size="20" fill="#536277" text-anchor="middle" font-weight="400" >Capable general model</text>
+</g>
+<g id="node-supervisor" data-node="supervisor">
+<rect x="1040" y="220" width="420" height="220" rx="22" fill="#fff0e3" stroke="#e4c1a3" stroke-width="2"/>
+<text x="1250.0" y="268" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Temporary supervisor</text>
+<text x="1250.0" y="316" font-size="22" fill="#98451f" text-anchor="middle" font-weight="400" >Owns the blocker-resolution plan</text>
+<text x="1250.0" y="352" font-size="22" fill="#98451f" text-anchor="middle" font-weight="400" >Coordinates affected workers</text>
+<text x="1250.0" y="402" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Stronger reasoning · up to maximum</text>
+</g>
+<g id="node-owner" data-node="owner">
+<rect x="560" y="540" width="480" height="135" rx="22" fill="#eeeafa" stroke="#c9bde8" stroke-width="2"/>
+<text x="800.0" y="588" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >One active orchestrator</text>
+<text x="800.0" y="623" font-size="20" fill="#584580" text-anchor="middle" font-weight="400" >Main OR Supervisor · one owner per scope</text>
+<text x="800.0" y="653" font-size="20" fill="#584580" text-anchor="middle" font-weight="400" >Reject stale or conflicting assignments</text>
+</g>
+<g id="node-build" data-node="build">
+<rect x="160" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
+<text x="350.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Implementation</text>
+<text x="350.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Produce or change artifacts</text>
+<text x="350.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+</g>
+<g id="node-investigate" data-node="investigate">
+<rect x="610" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
+<text x="800.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Investigation</text>
+<text x="800.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Test competing explanations</text>
+<text x="800.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+</g>
+<g id="node-verify" data-node="verify">
+<rect x="1060" y="790" width="380" height="150" rx="22" fill="#ffffff" stroke="#bfd8ce" stroke-width="2"/>
+<text x="1250.0" y="838" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Verification</text>
+<text x="1250.0" y="878" font-size="21" fill="#365e50" text-anchor="middle" font-weight="400" >Check accepted outcomes</text>
+<text x="1250.0" y="913" font-size="19" fill="#536277" text-anchor="middle" font-weight="400" >Worker · task-appropriate model</text>
+</g>
+<g id="node-evidence" data-node="evidence">
+<rect x="520" y="1060" width="560" height="140" rx="22" fill="#eaf0f5" stroke="#c9d4e1" stroke-width="2"/>
+<text x="800.0" y="1108" font-size="30" fill="#182638" text-anchor="middle" font-weight="600" >Evidence &amp; durable task state</text>
+<text x="800.0" y="1147" font-size="22" fill="#46596e" text-anchor="middle" font-weight="400" >Results · attempts · budgets · next step</text>
+<text x="800.0" y="1179" font-size="20" fill="#536277" text-anchor="middle" font-weight="400" >Original failures + observed model identity</text>
+</g>
+<rect x="140" y="1250" width="1320" height="60" rx="16" fill="#ffffff" stroke="#dce3ed" stroke-width="2"/>
+<text x="800" y="1288" font-size="22" fill="#46596e" text-anchor="middle" font-weight="400" >Always enforced: permissions · resource ceilings · safe cancellation · acceptance evidence</text>
+<text x="800" y="1345" font-size="21" fill="#536277" text-anchor="middle" font-weight="400" >Adapt startup, execution and inactivity budgets to evidence. A short poll timeout is not a failed job.</text>
+</g></svg>

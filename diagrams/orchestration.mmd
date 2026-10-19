@@ -1,0 +1,29 @@
+flowchart TB
+    main["Main coordinator"]
+    supervisor["Temporary supervisor"]
+    owner["One active orchestrator"]
+    build["Implementation"]
+    investigate["Investigation"]
+    verify["Verification"]
+    evidence["Evidence and durable task state"]
+    main -->|"Blocked or recurring issue"| supervisor
+    supervisor -->|"Verified repair and accepted handback"| main
+    main -->|"Normal ownership"| owner
+    supervisor -.->|"Temporary ownership"| owner
+    owner -->|"Assign"| build
+    owner -->|"Assign"| investigate
+    owner -->|"Assign"| verify
+    build -->|"Results"| evidence
+    investigate -->|"Results"| evidence
+    verify -->|"Results"| evidence
+    evidence -->|"Evidence and live status"| owner
+    classDef main fill:#eaf2ff,stroke:#aec7eb,color:#182638
+    classDef supervisor fill:#fff0e3,stroke:#e4c1a3,color:#182638
+    classDef owner fill:#eeeafa,stroke:#c9bde8,color:#182638
+    classDef worker fill:#ffffff,stroke:#bfd8ce,color:#182638
+    classDef evidence fill:#eaf0f5,stroke:#c9d4e1,color:#182638
+    class main main
+    class supervisor supervisor
+    class owner owner
+    class build,investigate,verify worker
+    class evidence evidence

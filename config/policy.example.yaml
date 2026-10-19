@@ -1,0 +1,56 @@
+# Portable policy example. This is not a runnable framework configuration.
+# An operator must select actual models, tools, budgets and enforcement adapters.
+version: 1
+roles:
+  main:
+    model: null
+    effort: task_appropriate
+    user_interface: true
+  supervisor:
+    model: null
+    effort: up_to_highest_supported_when_justified
+    temporary: true
+    scope: affected_blocker
+  workers:
+    model: task_appropriate
+    team_size: smallest_useful_team
+ownership:
+  one_active_orchestrator_per_scope: true
+  runtime_atomic_transfer_required: true
+  stale_assignment_fencing_required: true
+  takeover_at_safe_boundary: true
+  recursive_supervisors: false
+escalation:
+  triggers:
+    - recurring_failure_after_meaningful_correction
+    - contradictory_cross_component_evidence
+    - unresolved_execution_ownership_or_delivery
+    - architectural_or_integration_blocker
+    - activity_without_useful_progress
+  require_all_timers_exhausted: false
+budgets:
+  startup_seconds: null
+  execution_seconds: null
+  inactivity_seconds: null
+  observation_seconds: null
+  overall_resource_ceiling: null
+  required_resource_reserve: null
+  soft_extensions: evidence_and_authority_required
+  next_milestone_required: true
+  hard_limits_enforced_outside_model: true
+recovery:
+  reconcile_unknown_delivery_before_mutation_retry: true
+  operation_identity_and_deduplication_where_supported: true
+  retry_requires_transience_or_changed_evidence_input_state: true
+  read_observation_is_not_execution_attempt: true
+  preserve_prior_attempts_and_failures: true
+verification:
+  model_claim_is_not_completion: true
+  heartbeat_is_liveness_only: true
+  acceptance_evidence_required: true
+  observed_model_effort_or_unconfirmed: true
+handback:
+  main_reviews_evidence: true
+  explicit_control_acceptance_required: true
+  include_live_operations_and_next_step: true
+  end_temporary_supervision: true
