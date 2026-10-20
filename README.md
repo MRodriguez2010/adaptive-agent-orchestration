@@ -52,11 +52,19 @@ not reset attempts, elapsed use, or incident history. If recovery produces no us
 progress and no justified alternative remains, checkpoint the unresolved state and return
 the concrete blocker or required decision. Do not cycle through supervisors indefinitely.
 
-Triage related defects found during investigation. Correct one within existing authority
-when evidence links it to the current acceptance criteria or a required next dependency.
-Otherwise retain the finding, likely impact and proposed follow-up for Main. Do not turn
-preventive review into unlimited cleanup or claim that a future failure was prevented
-without evidence.
+Bind the Supervisor to the assigned blocker, explicit in-scope and out-of-scope work,
+acceptance checks, and a handback condition. Correct a newly found dependency only when
+evidence shows it prevents verification or safe handback of that blocker and the
+correction is already authorized. A dependency of Main's later work is a finding for
+Main, not an automatic extension of supervision. The Supervisor cannot expand its own
+contract or move its completion criteria to each new issue it finds.
+
+When the blocker checks pass and owned operations are reconciled, stop investigating
+and prepare handback. Report other findings with evidence, likely impact, their scope
+classification and proposed follow-up; leave them unfixed and unassigned. Their presence
+does not block handback. Main decides whether to defer them, handle them itself, or issue
+a separate bounded assignment within existing authority. Do not turn preventive review
+into unlimited cleanup or claim that a future failure was prevented without evidence.
 
 HANDOFF
 Provide a compact, authoritative packet: objective and acceptance criteria; current
@@ -103,10 +111,20 @@ VERIFICATION AND HANDBACK
 Resolve the blocker against its stated acceptance criteria using inspectable results,
 actual checks, and appropriate independent verification. Then return to Main with the
 root cause, exact changes, validation evidence, limitations, live-worker/in-flight
-state, and the next concrete step. Main checks the handback, explicitly accepts control,
-and resumes the task. End the temporary supervisory phase. If the same blocker returns,
-reopen its incident with new evidence rather than resetting history or creating another
-supervisory layer.
+state, deferred findings, and the next concrete step. Main checks the assigned blocker's
+evidence and safe operation state, explicitly accepts control, and continues the already
+authorized task without waiting for another user instruction. A rejection must identify
+a failed blocker criterion, missing required evidence or unreconciled owned operation;
+unrelated findings do not justify keeping the Supervisor active.
+
+After accepted handback, release supervisory authority and deactivate the Supervisor:
+no new searches, checks, assignments, polling or mutations until a new scoped assignment
+requires it. Retain its report and session for reuse where supported; do not claim an
+agent or process stopped without observing that outcome. While awaiting acceptance,
+remain quiescent except for bounded handback and necessary owned-operation safety work.
+Use the declared handback limit and checkpoint an unavailable recipient; do not start
+another investigation. If the same blocker returns, reopen its incident with new
+evidence rather than resetting history or creating another supervisory layer.
 
 CONTINUITY AND HONEST STATUS
 Keep one durable task/incident record containing ownership, state, evidence, attempts,
@@ -148,8 +166,8 @@ The project was previously titled *Adaptive Agent Orchestration*. The new title 
 2. **Bounded contracts bring in specialists.** Difficult work may justify a temporary specialist before a failure. A recurring blocker, contradictory state, or unresolved execution ambiguity can justify Supervisor takeover before arbitrary counters expire.
 3. **Supervisor takes temporary control.** It owns the affected plan and workers. Exactly one orchestrator controls that scope.
 4. **Waiting and recovery use finite, task-appropriate budgets.** Observation timeouts, actual failed tests, healthy execution and genuine stalls receive different treatment. Soft thresholds prompt review; hard limits remain binding. Retries and temporary supervision have end conditions, and handoffs do not reset resource use.
-5. **Verification precedes handback.** Supervisor returns the cause, change, evidence, limitations and continuation state. Main reviews and accepts control.
-6. **Temporary responsibilities end.** Accepted assignments release their authority after live operations are reconciled. Main resumes remaining work. Recurring incidents retain their history.
+5. **Verification precedes handback.** Supervisor stops investigating when its assigned blocker and owned operations are verified, and returns the cause, change, evidence, limitations and deferred findings. Unrelated issues do not delay handback or expand its contract.
+6. **Temporary responsibilities end.** Main reviews and accepts control, then continues already-authorized work without another user prompt. Supervisor releases authority and becomes inactive until a new scoped assignment. Recurring incidents retain their history.
 
 ## Read and reuse
 
@@ -164,6 +182,7 @@ The project was previously titled *Adaptive Agent Orchestration*. The new title 
 | [Field observation](docs/FIELD-OBSERVATION.md) | Sanitized experience, observed local corrections, and limits on evidence |
 | [Handoff](templates/handoff.md) / [Handback](templates/handback.md) | Compact transfer packets with evidence and live-operation state |
 | [Worker assignment](templates/worker-assignment.md) | Scope, ownership, acceptance, budgets and stopping conditions |
+| [Supervisor assignment](templates/supervisor-assignment.md) | Blocker scope, exclusions, verification, return condition and deactivation |
 | [Budget decision](templates/budget-decision.md) | Reasons, authority, next milestones and retained attempt history |
 | [Example policy](config/policy.example.yaml) | Provider-neutral configuration outline with operator-defined resource limits |
 

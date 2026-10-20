@@ -8,7 +8,7 @@ A contract is an operational assignment: objective, inputs, allowed scope, autho
 
 After delivery is accepted, reconcile or explicitly transfer live operations, close the assignment, and release its authority. A retained idle agent needs a new assignment before doing further work. Ending the assignment does not mean deleting its evidence or assuming that its external operations stopped.
 
-Related defects need triage. A finding that threatens an identified required dependency may justify correction within the existing contract and permissions. Otherwise preserve evidence, likely impact, and a proposed follow-up for Main. Preventive review does not authorize unrelated cleanup or prove that a future delay was prevented.
+Related defects need triage against the assigned acceptance criteria. A direct dependency may justify correction within the existing contract and permissions only if it prevents verification or safe handback of the assigned blocker. A dependency of Main's later work belongs in the report for Main. Preventive review does not authorize unrelated cleanup or prove that a future delay was prevented.
 
 See [execution modes](EXECUTION-MODES.md) for changing task structure under one state and authority layer, and [related work](RELATED-WORK.md) for established precedents and contribution boundaries.
 
@@ -69,6 +69,16 @@ Keep a single incident record. A recurrence adds evidence and attempts to that r
 
 Give the supervisory phase a finite recovery budget, an observable milestone, and a stopping condition within the task's remaining resources. If recovery makes no useful progress and there is no justified alternative, checkpoint as unresolved and identify the actual blocker or required decision. Changing the model, worker, or coordinator never resets attempts, elapsed resource use, or the incident's history.
 
+### Stop at the assigned resolution
+
+Record the blocker's in-scope and out-of-scope work, acceptance checks, permitted direct dependencies, and return condition before takeover. Use the [Supervisor assignment](../templates/supervisor-assignment.md) and [handoff](../templates/handoff.md) templates. The Supervisor cannot award itself follow-up work or broaden the completion criteria as it discovers issues.
+
+Classify a new finding using its evidence. Work on it inside the existing assignment only if it directly prevents a declared blocker check or reconciliation needed for safe handback, and the correction is already authorized. A general improvement, unrelated defect, or dependency of the next Main task does not meet that condition. Return those findings with evidence, likely impact, why they are outside the assignment, and a proposed check or follow-up. Leave their disposition to Main.
+
+Once the declared blocker checks pass and owned operations are reconciled or explicitly transferred, stop investigation and initiate handback. Deferred findings do not make that resolution incomplete. Main may handle them itself, defer them, or create another bounded contract when the overall task warrants it. That decision does not require another user approval when existing authority covers it, and it does not keep the completed Supervisor assignment active.
+
+Use a finite handback/acknowledgment limit within remaining resources. While waiting for Main's acceptance, the Supervisor is quiescent except for handback communication and necessary safety work on already-owned operations. An unavailable recipient leads to a checkpoint and the declared safe fallback, not another investigation or repeated self-extension. Transfer authority only after the acceptance and ownership checks pass.
+
 ## 5. Progress-aware limits
 
 | Budget | What it measures | Typical evidence |
@@ -114,11 +124,11 @@ Exhausting an operation's retry budget ends the unchanged strategy. A materially
 
 The blocker is resolved when its defined acceptance condition passes. Match verification to the consequence of the change: inspect saved artifacts, run relevant checks, observe the actual target environment, and use an independent check where it materially improves confidence.
 
-Handback includes the cause, exact change, evidence, limitations, worker/operation state, remaining resources and next step. Main checks the evidence and explicitly accepts control. The runtime advances the ownership generation, invalidates stale assignment authority, and closes the temporary supervisory phase.
+Handback includes the cause, exact change, evidence, limitations, deferred findings, worker/operation state, remaining resources and next step. Main checks the assigned blocker's evidence and explicitly accepts control. The runtime advances the ownership generation, invalidates stale assignment authority, closes the temporary supervisory phase and makes the Supervisor inactive. A retained session or process carries no authority and must issue no further searches, checks, assignments, polling or mutations until a new scoped assignment requires it.
 
-A passing narrow blocker check does not automatically complete the user's entire task. Main resumes remaining implementation, integration, delivery or user-facing verification.
+A passing narrow blocker check does not automatically complete the user's entire task. Main automatically resumes remaining already-authorized implementation, integration, delivery or user-facing verification without another user "continue" request. The host must actually support recipient activation and continuation delivery; otherwise record that limitation and the next step rather than claiming Main resumed. Preserve operation identities and reconcile uncertain continuation delivery before retrying it.
 
-If acceptance fails, Supervisor retains the incident, records the new evidence and changes strategy within its authorized scope. It must not reset the task's overall resource accounting. Ask the user when a real decision, access requirement, or material resource/scope change cannot be resolved autonomously.
+If acceptance fails, Main identifies the exact failed blocker criterion, missing required evidence or unreconciled owned operation. Supervisor retains the incident, records the new evidence and changes strategy within its authorized scope and remaining budget. Unrelated findings cannot expand those criteria or keep supervision active. It must not reset the task's overall resource accounting. Ask the user when a real decision, access requirement, or material resource/scope change cannot be resolved autonomously.
 
 ## 8. Status and evidence
 

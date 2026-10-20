@@ -33,6 +33,12 @@ Ending authority does not prove process death, reverse an external side effect, 
 
 An execution-mode change under the same owner preserves the task and operation records. A mode change that transfers ownership must also satisfy the atomic transfer rules below. Related findings outside the current authority remain findings until an authorized contract covers their correction.
 
+For a Supervisor contract, store explicit scope exclusions, blocker acceptance checks, the return condition and a finite handback limit. Record incidental findings separately from work admitted to that contract. Accept an added dependency only with evidence that it prevents the declared blocker checks or safe handback and is already authorized; do not permit the Supervisor to expand its own scope or replace the completion criteria. A dependency of later Main work requires Main's separate disposition.
+
+When blocker verification and owned-operation reconciliation pass, move the assignment to `handback_pending`. In that state, allow only bounded handback communication and necessary safety actions on already-owned operations; reject new investigations, assignments or unrelated mutations. Unrelated findings cannot veto blocker acceptance. At the declared handback limit, checkpoint and follow the safe fallback without fabricating a transfer or starting another investigation.
+
+On accepted atomic transfer, close the Supervisor assignment, revoke its assignment/mutation authority and mark it inactive. Fence stale work even if the session or process remains available. Schedule or deliver Main's next already-authorized step through the host's real continuation mechanism, with one current owner and without another user "continue" request. Make that continuation recoverable without duplicate dispatch if delivery is uncertain. Record observed deactivation/continuation separately from intended behavior; a host lacking these mechanisms must report that limitation. A later Supervisor activation requires a new scoped assignment, with prior incident history and resource use retained.
+
 ## Atomic control transfer
 
 A takeover or handback uses a compare-and-set transaction against the expected owner and generation. The update records its reason, evidence, accepted packet and new owner, then advances the generation. Reject stale transfers.
@@ -95,8 +101,14 @@ on_event(event):
 on_handback(packet):
     require current Supervisor ownership
     Main checks blocker acceptance and live-operation state
+    record deferred findings without widening blocker acceptance
+    reject only for a failed blocker criterion, missing required evidence,
+        or unreconciled owned operation
     atomically transfer affected scope to Main
-    Main resumes remaining work
+    close Supervisor contract and revoke its authority
+    leave Supervisor inactive until a new scoped assignment
+    deliver Main's next already-authorized step through the host
+    reconcile uncertain continuation delivery before retrying
 ```
 
 This sketch omits transport, storage and provider details. Implement and evaluate the actual adapters before claiming these guarantees.

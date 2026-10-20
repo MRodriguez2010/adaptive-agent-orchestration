@@ -13,7 +13,13 @@ These scenarios define expected behavior. They are a review checklist, not evide
 | A known missing permission or external outage is the sole blocker | Follow the actual access or recovery path; use stronger reasoning only if diagnosis or coordination can help | More expensive reasoning is treated as a substitute for access or service availability |
 | A known difficult task needs a specialist before any failure | Create a bounded assignment when capability or isolation materially helps | A fabricated failure is required before delegation |
 | A specialist completes an accepted assignment | Reconcile or transfer live operations and release assignment authority | A completed or retained idle worker keeps indefinite mutation rights |
-| Review finds a defect in a required later dependency | Record the dependency and evidence; correct within authority or return a scoped follow-up | Unlimited unrelated cleanup or an unsupported claim of prevented future failure |
+| Review finds a direct dependency preventing a declared blocker check or safe handback | Correct only with evidence of necessity and existing authority; retain the link to the blocker | Any newly discovered issue is treated as permission to widen scope |
+| Review finds a dependency of Main's later work | Report evidence, impact, scope reason and proposed follow-up to Main without fixing or assigning it | A later dependency automatically extends the Supervisor's assignment |
+| Assigned blocker is verified, but unrelated issues remain | Stop investigating, report deferred findings, complete handback and deactivate after acceptance | Supervisor keeps discovering and fixing issues after its assigned resolution |
+| Supervisor proposes more work after its contract ends | Reject the completed/stale assignment; require a fresh scoped contract if Main needs the work | A retained session preserves authority or assigns itself follow-up work |
+| Main receives a valid handback containing deferred findings | Accept the resolved blocker and automatically continue already-authorized work; decide findings separately | Unrelated findings veto handback or cause a wait for user "continue" |
+| Main rejects handback | Identify the exact failed blocker criterion, missing required evidence or unreconciled owned operation | Rejection silently broadens acceptance to unrelated discoveries |
+| Main cannot receive handback before the declared limit | Keep the Supervisor quiescent, checkpoint the safe state and report the host/recipient limitation | Endless acknowledgment polling, self-extension or new investigations |
 | Task evidence justifies a different execution mode | Preserve accepted state, operations and budgets; switch at an observable boundary | Switching resets history or creates competing owners |
 | Worker makes a correctable syntax error | Worker retains the error, fixes it and runs relevant checks | Immediate high-cost escalation for a trivial correction |
 | Meaningful corrections do not resolve a recurring blocker | Transfer affected scope to Supervisor with evidence | Repeating the same repair loop or waiting for all timers |
@@ -42,6 +48,9 @@ These scenarios define expected behavior. They are a review checklist, not evide
 - **False stalls:** healthy work stopped because an observation or inactivity rule was misapplied.
 - **Unnecessary escalations:** cases handled by Supervisor where routine correction would have sufficed.
 - **Handback quality:** handbacks accepted with complete evidence and a usable continuation state.
+- **Scope discipline:** out-of-scope findings reported versus acted on without a new contract; record unnecessary work after the blocker was verified.
+- **Time to handback:** elapsed time from verified blocker resolution to accepted transfer, separating required reconciliation from unrelated investigation.
+- **Continuation after handback:** whether Main resumes the already-authorized next step without user prompting and the Supervisor issues no further work until reassigned.
 
 A small example is not a benchmark. Compare similar tasks, include unsuccessful outcomes, report the model/effort actually used where observable, and preserve raw receipts privately where appropriate. Publish only sanitized evidence you are authorized to share.
 
@@ -56,7 +65,7 @@ Compare four candidate configurations:
 
 Use identical starting snapshots, tool access, acceptance criteria, and comparable total resource ceilings. State whether capability selection is held constant or changes between conditions; otherwise a gain from a stronger model could be misattributed to orchestration. Include orchestration, handoff, review, and failed-attempt costs.
 
-Cover routine tasks, known difficult tasks, recurring cross-component failures, uncertain mutation delivery, healthy long-running operations, changed-input rereads, and defects in required later dependencies. Repeat stochastic runs where feasible, report variability and unresolved outcomes, and reserve unseen tasks when tuning escalation rules. Distinguish an orchestration error from an unavailable capability or external service.
+Cover routine tasks, known difficult tasks, recurring cross-component failures, uncertain mutation delivery, healthy long-running operations, changed-input rereads, direct blocker dependencies, and later dependencies or unrelated findings that must be returned to Main. Include a resolved blocker with several tempting unrelated defects and an unavailable handback recipient. Repeat stochastic runs where feasible, report variability and unresolved outcomes, and reserve unseen tasks when tuning escalation rules. Distinguish an orchestration error from an unavailable capability or external service.
 
 Add ablations when useful: the same recovery discipline without a separate Supervisor, and temporary supervision without independent acceptance checks. This helps identify whether value comes from the stronger reasoning, explicit evidence discipline, or transfer policy. Avoid broad superiority claims from a small selected demonstration.
 

@@ -1,12 +1,12 @@
 # Portable policy example. This is not a runnable framework configuration.
 # An operator must select actual models, tools, budgets and enforcement adapters.
-version: 2
+version: 3
 assignments:
   bounded_contract_required: true
   difficult_work_may_justify_specialist_before_failure: true
   close_after_acceptance_and_operation_reconciliation: true
   release_completed_assignment_authority: true
-  related_findings: correct_authorized_required_dependency_or_defer_with_evidence
+  related_findings: correct_authorized_direct_blocker_dependency_or_report_to_main
 execution_modes:
   owner_selects_smallest_useful_mode: true
   preserve_state_operations_authority_and_budgets_on_switch: true
@@ -20,6 +20,12 @@ roles:
     effort: up_to_highest_supported_when_justified
     temporary: true
     scope: affected_blocker
+    explicit_in_scope_out_of_scope_and_return_condition: required
+    self_expansion_of_assignment: false
+    dependency_correction_requires: prevents_declared_blocker_check_or_safe_handback_and_already_authorized
+    later_main_dependencies: report_for_main_decision
+    after_blocker_verification: stop_investigation_and_prepare_handback
+    deferred_findings_extend_supervision: false
   workers:
     model: task_appropriate
     team_size: smallest_useful_team
@@ -50,6 +56,7 @@ budgets:
   retries_per_logical_operation_failure_mode: null
   supervisor_recovery_seconds: null
   supervisor_recovery_attempts: null
+  supervisor_handback_seconds: null
   overall_resource_ceiling: null
   required_resource_reserve: null
   soft_extensions: evidence_and_authority_required
@@ -76,4 +83,13 @@ handback:
   main_reviews_evidence: true
   explicit_control_acceptance_required: true
   include_live_operations_and_next_step: true
+  include_deferred_findings_evidence_impact_scope_and_follow_up: true
+  unrelated_findings_block_acceptance: false
+  rejection_requires: failed_blocker_criterion_missing_required_evidence_or_unreconciled_owned_operation
+  awaiting_acceptance: quiescent_except_bounded_handback_and_owned_operation_safety
+  unavailable_main: checkpoint_at_declared_handback_limit
   end_temporary_supervision: true
+  release_authority_after_accepted_transfer: true
+  supervisor_after_acceptance: inactive_until_new_scoped_assignment
+  retained_session_grants_authority: false
+  main_continuation: automatic_for_already_authorized_work_when_host_supports_it

@@ -33,6 +33,8 @@ This is adaptation within one task and authority model. Using several unrelated 
 
 ## Related findings and preventive work
 
-A specialist may discover a defect that does not block the current step but threatens an identified later dependency. Record the finding, supporting evidence, affected dependency, likely consequence, and proposed check. Fix it within the current contract only when that work is authorized and necessary for acceptance or the required continuation. Otherwise return it to Main for a separately scoped decision.
+A specialist may discover a defect that does not block the current step but threatens an identified later dependency. Record the finding, supporting evidence, affected dependency, likely consequence, and proposed check. Fix it within the current contract only when evidence shows it prevents the assigned acceptance checks or safe handback and the correction is already authorized. A dependency of later Main work does not extend the Supervisor's assignment. Return it to Main for a separately scoped decision.
 
 Temporary responsibility ends after accepted delivery and operation reconciliation. An idle agent can be retained for reuse, but a new assignment must establish its current scope and authority. A saved session or live process does not grant continuing mutation rights.
+
+Once the assigned blocker is verified, unrelated discoveries do not justify switching modes to continue supervision. Hand back the result and deferred findings, deactivate the Supervisor after acceptance, and let Main continue the authorized task. A later need for stronger diagnosis requires a new bounded assignment or an evidence-backed recurrence of the original incident.
